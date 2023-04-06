@@ -1,0 +1,237 @@
+#procedure scalarproduct
+
+id p4=p1+p2+p3;
+
+id p1.p1=mt^2;
+id p2.p2=mt^2;
+id p3.p3=0;
+
+id p1.p2=s12/2-mt^2;
+id p1.p3=s13/2-1/2*mt^2;
+id p2.p3=s23/2-1/2*mt^2;
+
+If(match(Sector(F1,?a)));
+
+id k1.p3=1/2*prop8-1/2*s23+mt^2-1/2*prop3-1/2*s13;
+id k2.k2=mt^2+prop6;
+id p2.k2=mt^2-1/2*prop9-1/2*s12+1/2*prop4;
+id k1.p1=1/2*prop2-1/2*prop1;
+id k1.p2=-1/2*prop2+1/2*prop3-1/2*s12;
+id k2.p3=-1/2*s23+1/2*prop5+mt^2-1/2*s13-1/2*prop4;
+id k1.k2=-1/2*prop7+1/2*prop1+1/2*prop6;
+id k1.k1=prop1;
+id k2.p1=-mt^2+1/2*prop9-1/2*prop6;
+
+endif;
+
+*If(match(Sector(F2,?a)));
+*
+*
+*id k1,p3=-1/2*Prop(p2+k1+p1,mt^2)^(-1)-1/2*s23+mt^2-1/2*s13+1/2*Prop(p2+k1+p1+p3,mt^2)^(-1);
+*id k1,k2=-1/2*Prop(k1-k2,0)^(-1)+mt^2+1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k2,mt^2)^(-1);
+*id k1,p1=1/2*Prop(k1+p1,0)^(-1)-mt^2-1/2*Prop(k1,mt^2)^(-1);
+*id p1,k2=1/2*Prop(p1+k2,0)^(-1)-mt^2-1/2*Prop(k2,mt^2)^(-1);
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id k2,p3=-1/2*Prop(p2+p1+k2,mt^2)^(-1)-1/2*s23+mt^2+1/2*Prop(p2+p1+k2+p3,mt^2)^(-1)-1/2*s13;
+*id p2,k2=1/2*Prop(p2+p1+k2,mt^2)^(-1)-1/2*Prop(p1+k2,0)^(-1)+mt^2-1/2*s12;
+*id p2,k1=1/2*Prop(p2+k1+p1,mt^2)^(-1)-1/2*Prop(k1+p1,0)^(-1)+mt^2-1/2*s12;
+*
+*endif;
+*If(match(Sector(F3,?a)));
+*
+*
+*id p2,k1=-1/2*Prop(k1+p1,mt^2)^(-1)+1/2*Prop(p2+k1+p1,0)^(-1)-1/2*s12;
+*id k1,k1=Prop(k1,0)^(-1);
+*id p1,k2=-1/2*Prop(k2,mt^2)^(-1)-mt^2+1/2*Prop(p1+k2,0)^(-1);
+*id k2,p3=-1/2*s23-1/2*Prop(p2+k1+p1,0)^(-1)+mt^2+1/2*Prop(-k1+k2+p3,mt^2)^(-1)+1/2*Prop(p2+k1+p1+p3,0)^(-1)-1/2*s13-1/2*Prop(k1-k2,mt^2)^(-1);
+*id k2,k2=Prop(k2,mt^2)^(-1)+mt^2;
+*id p2,k2=1/2*Prop(p2+k1+p1,0)^(-1)+1/2*Prop(p2+p1+k2+p3,mt^2)^(-1)+mt^2-1/2*Prop(-k1+k2+p3,mt^2)^(-1)-1/2*Prop(p2+k1+p1+p3,0)^(-1)-1/2*s12-1/2*Prop(p1+k2,0)^(-1)+1/2*Prop(k1-k2,mt^2)^(-1);
+*id k1,p1=1/2*Prop(k1+p1,mt^2)^(-1)-1/2*Prop(k1,0)^(-1);
+*id k1,k2=1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(k1,0)^(-1)-1/2*Prop(k1-k2,mt^2)^(-1);
+*id k1,p3=-1/2*s23-1/2*Prop(p2+k1+p1,0)^(-1)+mt^2+1/2*Prop(p2+k1+p1+p3,0)^(-1)-1/2*s13;
+*
+*endif;
+*If(match(Sector(F4,?a)));
+*
+*
+*id k2,p1=-mt^2+1/2*Prop(k2+p1,0)^(-1)-1/2*Prop(k2,mt^2)^(-1);
+*id k2,k1=-mt^2-1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(k2+k1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id p1,k1=-mt^2+1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id k2,p3=-1/2*Prop(k2+p2,0)^(-1)+2*mt^2-1/2*Prop(k2+p1,0)^(-1)+1/2*Prop(k2+p2+p1+k1+p3,0)^(-1)+Prop(k2,mt^2)^(-1)-1/2*Prop(p2+p1+k1+p3,mt^2)^(-1)-1/2*Prop(k2+k1,0)^(-1)+1/2*Prop(k1,mt^2)^(-1);
+*id p2,k1=-1/2*s23+3/2*mt^2-1/2*Prop(p1+k1+p3,0)^(-1)-1/2*s12+1/2*Prop(p2+p1+k1+p3,mt^2)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id k1,p3=1/2*mt^2+1/2*Prop(p1+k1+p3,0)^(-1)-1/2*Prop(p1+k1,0)^(-1)-1/2*s13;
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,p2=1/2*Prop(k2+p2,0)^(-1)-mt^2-1/2*Prop(k2,mt^2)^(-1);
+*
+*endif;
+*If(match(Sector(F5,?a)));
+*
+*
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,k2=Prop(k2,0)^(-1);
+*id k2,p1=1/2*Prop(k2+p1,0)^(-1)-1/2*mt^2-1/2*Prop(k2,0)^(-1);
+*id p2,k1=-mt^2+1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id k2,p3=-1/2*Prop(k2-p3,0)^(-1)+1/2*Prop(k2,0)^(-1);
+*id k1,p3=1/2*s23+1/2*Prop(k1-p1,0)^(-1)-mt^2+1/2*s12-1/2*Prop(p2+k1,0)^(-1)+1/2*s13-1/2*Prop(p2-k1+p1+p3,mt^2)^(-1)+1/2*Prop(k1,mt^2)^(-1);
+*id p2,k2=-1/2*Prop(k2,0)^(-1)+1/2*Prop(p2+k2,mt^2)^(-1);
+*id k1,p1=-1/2*Prop(k1-p1,0)^(-1)+mt^2+1/2*Prop(k1,mt^2)^(-1);
+*id k1,k2=1/2*Prop(k2+p1,0)^(-1)+1/2*Prop(k1+k2-p1-p3,0)^(-1)+1/2*s23-1/2*Prop(k2-p3,0)^(-1)-mt^2-1/2*Prop(k2,0)^(-1)+1/2*s12-1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(p2-k1+p1+p3,mt^2)^(-1)+1/2*Prop(k1,mt^2)^(-1)
+*
+*endif;
+*If(match(Sector(F6,?a)));
+*
+*
+*id k2,k1=-1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(k2,0)^(-1)+1/2*Prop(k2+k1,0)^(-1)-1/2*mt^2;
+*id k2,p3=-1/2*Prop(k2,0)^(-1)+1/2*Prop(k2+p3,0)^(-1);
+*id p1,k1=1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(p1-k1,0)^(-1)+mt^2;
+*id k2,p1=-1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(k2-p1+k1,0)^(-1)+1/2*Prop(k2+k1,0)^(-1)+1/2*Prop(p1-k1,0)^(-1)-1/2*mt^2;
+*id k1,p3=1/2*Prop(p1-k1,0)^(-1)-1/2*mt^2-1/2*Prop(p1-k1+p3,0)^(-1)+1/2*s13;
+*id k2,p2=1/2*Prop(k2+p2+p3,0)^(-1)-1/2*Prop(k2+p3,0)^(-1)-1/2*s23;
+*id p2,k1=1/2*s23-3/2*mt^2+1/2*Prop(p1-k1+p3,0)^(-1)+1/2*s12-1/2*Prop(p2+p1-k1+p3,mt^2)^(-1);
+*id k1,k1=Prop(k1,mt^2)^(-1)+mt^2;
+*id k2,k2=Prop(k2,0)^(-1)
+*
+*endif;
+*If(match(Sector(F7,?a)));
+*
+*
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k1,p1=mt^2+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(k1-p1,0)^(-1);
+*id k1,k2=-1/2*Prop(p2-k1+p1+p3,mt^2)^(-1)+1/2*s23-1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(k2,mt^2)^(-1)-3/2*mt^2+1/2*s12+1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(p1+k2,0)^(-1)-1/2*Prop(p3-k2,mt^2)^(-1)+1/2*Prop(k1-p1-p3+k2,mt^2)^(-1);
+*id p1,k2=-1/2*Prop(k2,mt^2)^(-1)-mt^2+1/2*Prop(p1+k2,0)^(-1);
+*id k1,p3=-1/2*Prop(p2-k1+p1+p3,mt^2)^(-1)+1/2*s23-1/2*Prop(p2+k1,0)^(-1)-mt^2+1/2*s12+1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k1-p1,0)^(-1)+1/2*s13;
+*id p2,k2=-1/2*Prop(k2,mt^2)^(-1)-mt^2+1/2*Prop(p2+k2,0)^(-1);
+*id p3,k2=1/2*Prop(k2,mt^2)^(-1)-1/2*Prop(p3-k2,mt^2)^(-1);
+*id p2,k1=1/2*Prop(p2+k1,0)^(-1)-mt^2-1/2*Prop(k1,mt^2)^(-1);
+*id k2,k2=Prop(k2,mt^2)^(-1)+mt^2
+*
+*endif;
+*If(match(Sector(F8,?a)));
+*
+*
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,p1=-1/2*Prop(k2,0)^(-1)-1/2*mt^2+1/2*Prop(k2+p1,0)^(-1);
+*id k2,k2=Prop(k2,0)^(-1);
+*id p2,k1=-1/2*s23-1/2*Prop(k1+p1+p3,0)^(-1)+3/2*mt^2-1/2*s12+1/2*Prop(p2+k1+p1+p3,mt^2)^(-1);
+*id k2,p3=Prop(k2,0)^(-1)+mt^2-1/2*Prop(k1+k2,0)^(-1)-1/2*Prop(p2+k2,mt^2)^(-1)+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(k2+p1,0)^(-1)+1/2*Prop(p2+k1+k2+p1+p3,mt^2)^(-1)-1/2*Prop(p2+k1+p1+p3,mt^2)^(-1);
+*id k1,p3=1/2*Prop(k1+p1+p3,0)^(-1)+1/2*mt^2-1/2*Prop(k1+p1,0)^(-1)-1/2*s13;
+*id p2,k2=-1/2*Prop(k2,0)^(-1)+1/2*Prop(p2+k2,mt^2)^(-1);
+*id k1,p1=-mt^2-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k1+p1,0)^(-1);
+*id k1,k2=-1/2*Prop(k2,0)^(-1)-1/2*mt^2+1/2*Prop(k1+k2,0)^(-1)-1/2*Prop(k1,mt^2)^(-1)
+*
+*endif;
+*If(match(Sector(F9,?a)));
+*
+*
+*id k2,k2=Prop(k2,0)^(-1);
+*id k2,p1=Prop(k2,0)^(-1)+1/2*Prop(p2+k1+k2+p1+p3,mt^2)^(-1)+1/2*mt^2+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(p2+k2,0)^(-1)-1/2*Prop(p2+k1+p1+p3,mt^2)^(-1)-1/2*Prop(k1+k2,mt^2)^(-1)-1/2*Prop(k2+p3,0)^(-1);
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id p2,k1=1/2*Prop(k2,0)^(-1)-1/2*s23-1/2*Prop(k1+k2+p1+p3,0)^(-1)+1/2*Prop(p2+k1+k2+p1+p3,mt^2)^(-1)+2*mt^2-1/2*s12-1/2*Prop(p2+k2,0)^(-1);
+*id k2,p3=-1/2*Prop(k2,0)^(-1)+1/2*Prop(k2+p3,0)^(-1);
+*id k1,p3=-1/2*Prop(k2,0)^(-1)+1/2*Prop(k1+k2+p1+p3,0)^(-1)-1/2*Prop(p2+k1+k2+p1+p3,mt^2)^(-1)-1/2*Prop(k1+p1,0)^(-1)+1/2*Prop(p2+k2,0)^(-1)+1/2*Prop(p2+k1+p1+p3,mt^2)^(-1)-1/2*s13;
+*id p2,k2=-1/2*Prop(k2,0)^(-1)-1/2*mt^2+1/2*Prop(p2+k2,0)^(-1);
+*id k1,k2=-1/2*Prop(k2,0)^(-1)-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k1+k2,mt^2)^(-1);
+*id k1,p1=-mt^2-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k1+p1,0)^(-1)
+*
+*endif;
+*If(match(Sector(F10,?a)));
+*
+*
+*id k2,p1=-mt^2+1/2*Prop(k2+p1,0)^(-1)-1/2*Prop(k2,mt^2)^(-1);
+*id k2,p3=1/2*Prop(k2+p3,mt^2)^(-1)-1/2*Prop(k2,mt^2)^(-1);
+*id p1,k1=-1/2*Prop(p1-k1,0)^(-1)+mt^2+1/2*Prop(k1,mt^2)^(-1);
+*id k2,k1=-1/2*Prop(p1-k1,0)^(-1)+1/2*Prop(k2-p1+k1,mt^2)^(-1)-mt^2+1/2*Prop(k2+p1,0)^(-1)-Prop(k2,mt^2)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id p2,k1=1/2*s23-3/2*mt^2-1/2*Prop(p2+p1-k1+p3,mt^2)^(-1)+1/2*s12+1/2*Prop(p1-k1+p3,0)^(-1);
+*id k1,p3=1/2*Prop(p1-k1,0)^(-1)-1/2*mt^2-1/2*Prop(p1-k1+p3,0)^(-1)+1/2*s13;
+*id k2,p2=-mt^2+1/2*Prop(k2+p2,0)^(-1)-1/2*Prop(k2,mt^2)^(-1)
+*
+*endif;
+*If(match(Sector(F11,?a)));
+*
+*
+*id k1,p3=1/2*Prop(k1+p3,0)^(-1)-1/2*Prop(k1,0)^(-1);
+*id k1,k2=-1/2*Prop(p2+k1+p3,mt^2)^(-1)+1/2*Prop(p2+k1+p1+k2+p3,0)^(-1)-1/2*s23+mt^2-s12+1/2*Prop(p2+p1-k2+p3,mt^2)^(-1)+1/2*Prop(k1-p1,mt^2)^(-1)-s13-Prop(k2,mt^2)^(-1)-1/2*Prop(k1,0)^(-1);
+*id k1,p1=-1/2*Prop(k1-p1,mt^2)^(-1)+1/2*Prop(k1,0)^(-1);
+*id p1,k2=-1/2*Prop(p2+k1+p3,mt^2)^(-1)-1/2*Prop(k1-p1+k2,0)^(-1)+1/2*Prop(p2+k1+p1+k2+p3,0)^(-1)-1/2*s23+2*mt^2-s12+1/2*Prop(p2+p1-k2+p3,mt^2)^(-1)+Prop(k1-p1,mt^2)^(-1)-s13-1/2*Prop(k2,mt^2)^(-1)-1/2*Prop(k1,0)^(-1);
+*id k1,k1=Prop(k1,0)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id p2,k2=-mt^2+1/2*Prop(p2+k2,0)^(-1)-1/2*Prop(k2,mt^2)^(-1);
+*id k2,p3=1/2*Prop(p2+k1+p3,mt^2)^(-1)+1/2*Prop(k1-p1+k2,0)^(-1)-1/2*Prop(p2+k1+p1+k2+p3,0)^(-1)+s23-2*mt^2+3/2*s12-1/2*Prop(p2+k2,0)^(-1)-Prop(p2+p1-k2+p3,mt^2)^(-1)-Prop(k1-p1,mt^2)^(-1)+3/2*s13+3/2*Prop(k2,mt^2)^(-1)+1/2*Prop(k1,0)^(-1);
+*id p2,k1=1/2*Prop(p2+k1+p3,mt^2)^(-1)-1/2*s23+1/2*mt^2-1/2*Prop(k1+p3,0)^(-1)
+*
+*endif;
+*If(match(Sector(F12,?a)));
+*
+*
+*id k2,p1=-mt^2-1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(k2+p1,0)^(-1);
+*id k2,p3=-1/2*Prop(-k2+p2+p1+p3,mt^2)^(-1)+1/2*s23+mt^2-1/2*Prop(-k2+p1+k1,mt^2)^(-1)+1/2*Prop(-k2+p2+p1+k1,0)^(-1)+1/2*Prop(k1,mt^2)^(-1)+Prop(k2,mt^2)^(-1)+1/2*s13-1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(k2+p1,0)^(-1);
+*id p1,k1=-mt^2+1/2*Prop(p1+k1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id k2,k1=mt^2-1/2*Prop(-k2+p1+k1,mt^2)^(-1)+1/2*Prop(p1+k1,0)^(-1)+Prop(k2,mt^2)^(-1)-1/2*Prop(k2+p1,0)^(-1);
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id p2,k1=-mt^2-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(p2+k1,0)^(-1);
+*id k1,p3=-1/2*Prop(k1-p3,mt^2)^(-1)+1/2*Prop(k1,mt^2)^(-1);
+*id k2,p2=-mt^2+1/2*Prop(-k2+p1+k1,mt^2)^(-1)-1/2*Prop(-k2+p2+p1+k1,0)^(-1)+1/2*s12-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(p2+k1,0)^(-1)
+*
+*endif;
+*If(match(Sector(F13,?a)));
+*
+*
+*id k2,p1=1/2*Prop(k2+p1,0)^(-1)-1/2*Prop(k2,mt^2)^(-1)-mt^2;
+*id p1,k1=-1/2*Prop(k1,0)^(-1)+1/2*Prop(p1+k1,mt^2)^(-1);
+*id k2,p3=-1/2*Prop(k2+p1,0)^(-1)+1/2*Prop(-k2+p2+p1+k1,mt^2)^(-1)+1/2*Prop(k1,0)^(-1)-1/2*Prop(-k2+p1+k1,0)^(-1)+Prop(k2,mt^2)^(-1)+1/2*s23+3/2*mt^2-1/2*Prop(p2+k1,0)^(-1)-1/2*Prop(-k2+p2+p1+p3,mt^2)^(-1)+1/2*s13;
+*id k2,k1=-1/2*Prop(k2+p1,0)^(-1)-1/2*Prop(-k2+p1+k1,0)^(-1)+Prop(k2,mt^2)^(-1)+1/2*Prop(p1+k1,mt^2)^(-1)+2*mt^2;
+*id p2,k1=-1/2*Prop(k1,0)^(-1)-1/2*mt^2+1/2*Prop(p2+k1,0)^(-1);
+*id k2,k2=Prop(k2,mt^2)^(-1)+mt^2;
+*id k1,p3=1/2*Prop(k1,0)^(-1)-1/2*Prop(k1-p3,0)^(-1);
+*id k2,p2=-1/2*Prop(-k2+p2+p1+k1,mt^2)^(-1)-1/2*Prop(k1,0)^(-1)+1/2*Prop(-k2+p1+k1,0)^(-1)-3/2*mt^2+1/2*s12+1/2*Prop(p2+k1,0)^(-1);
+*id k1,k1=Prop(k1,0)^(-1)
+*
+*endif;
+*If(match(Sector(F14,?a)));
+*
+*
+*id k2,p1=-1/2*Prop(k2-p1+k1,mt^2)^(-1)-1/2*mt^2+1/2*Prop(p1-k1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k2+k1,mt^2)^(-1);
+*id p1,k1=mt^2-1/2*Prop(p1-k1,0)^(-1)+1/2*Prop(k1,mt^2)^(-1);
+*id k2,k1=-1/2*mt^2-1/2*Prop(k2,mt^2)^(-1)-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(k2+k1,mt^2)^(-1);
+*id k2,p3=1/2*Prop(k2-p1+k1,mt^2)^(-1)+1/2*s23-1/2*Prop(-k2+p2+p1+p3,mt^2)^(-1)+Prop(k2,mt^2)^(-1)-1/2*Prop(p1-k1,0)^(-1)+1/2*s12+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(k2+k1,mt^2)^(-1)-1/2*Prop(k2+p2,mt^2)^(-1)+1/2*s13;
+*id p2,k1=1/2*Prop(p2+p3+k1,0)^(-1)-1/2*s23-1/2*mt^2-1/2*Prop(p3+k1,mt^2)^(-1);
+*id k2,k2=mt^2+Prop(k2,mt^2)^(-1);
+*id p3,k1=1/2*Prop(p3+k1,mt^2)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,p2=-1/2*mt^2-1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(k2+p2,mt^2)^(-1)
+*
+*endif;
+*If(match(Sector(F15,?a)));
+*
+*
+*id p2,k2=1/2*Prop(k1-p3,mt^2)^(-1)+1/2*mt^2-1/2*Prop(-k1+k2+p1+p3,mt^2)^(-1)+1/2*Prop(-k1+p2+k2+p1+p3,0)^(-1)-1/2*Prop(k1+p1,0)^(-1)+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(-k1+p2+p1+p3,mt^2)^(-1)+1/2*s13;
+*id k1,p1=-mt^2+1/2*Prop(k1+p1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1);
+*id k1,p3=-1/2*Prop(k1-p3,mt^2)^(-1)+1/2*Prop(k1,mt^2)^(-1);
+*id k2,k2=Prop(k2,mt^2)^(-1)+mt^2;
+*id k1,k1=mt^2+Prop(k1,mt^2)^(-1);
+*id k2,p1=-1/2*Prop(k2,mt^2)^(-1)-mt^2+1/2*Prop(k2+p1,0)^(-1);
+*id k1,k2=-1/2*Prop(k2,mt^2)^(-1)-1/2*s23+1/2*Prop(p2+k2+p3,0)^(-1)-1/2*mt^2-1/2*Prop(-k1+p2+k2+p1+p3,0)^(-1)+1/2*Prop(k2+p1,0)^(-1)+1/2*Prop(-k1+p2+p1+p3,mt^2)^(-1);
+*id k2,p3=-1/2*Prop(k2,mt^2)^(-1)-1/2*s23+1/2*Prop(p2+k2+p3,0)^(-1)-1/2*Prop(k1-p3,mt^2)^(-1)-mt^2+1/2*Prop(-k1+k2+p1+p3,mt^2)^(-1)-1/2*Prop(-k1+p2+k2+p1+p3,0)^(-1)+1/2*Prop(k1+p1,0)^(-1)-1/2*Prop(k1,mt^2)^(-1)+1/2*Prop(-k1+p2+p1+p3,mt^2)^(-1)-1/2*s13;
+*id k1,p2=1/2*s23+1/2*Prop(k1-p3,mt^2)^(-1)+1/2*s12-1/2*Prop(k1+p1,0)^(-1)+1/2*Prop(k1,mt^2)^(-1)-1/2*Prop(-k1+p2+p1+p3,mt^2)^(-1)+1/2*s13
+*
+*endif;
+*If(match(Sector(F16,?a)));
+*
+*
+*id p1,k2=-1/2*Prop(k1+p1-k2,0)^(-1)+1/2*Prop(k1,0)^(-1)+Prop(k2,mt^2)^(-1)-1/2*Prop(p2+k2,0)^(-1)-1/2*Prop(k1+p3,0)^(-1)+1/2*s23+1/2*mt^2+1/2*s12-1/2*Prop(p2+p1-k2+p3,mt^2)^(-1)+1/2*Prop(k1+p1-k2+p3,0)^(-1);
+*id p2,k1=1/2*Prop(k1,0)^(-1)-1/2*Prop(p2-k1,mt^2)^(-1);
+*id k2,k2=Prop(k2,mt^2)^(-1)+mt^2;
+*id k1,k1=Prop(k1,0)^(-1);
+*id k2,p3=1/2*Prop(k1+p1-k2,0)^(-1)-1/2*Prop(k1,0)^(-1)+1/2*Prop(k1+p3,0)^(-1)-1/2*mt^2-1/2*Prop(k1+p1-k2+p3,0)^(-1)+1/2*s13;
+*id k1,p1=-1/2*Prop(k1,0)^(-1)+1/2*Prop(k1+p1,mt^2)^(-1);
+*id k1,k2=-1/2*Prop(k1,0)^(-1)-1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(p2+k2,0)^(-1)+1/2*Prop(k1+p3,0)^(-1)-1/2*s23+1/2*mt^2-1/2*s12+1/2*Prop(k1+p1,mt^2)^(-1)+1/2*Prop(p2+p1-k2+p3,mt^2)^(-1)-1/2*Prop(k1+p1-k2+p3,0)^(-1);
+*id p2,k2=-1/2*Prop(k2,mt^2)^(-1)+1/2*Prop(p2+k2,0)^(-1)-mt^2;
+*id k1,p3=-1/2*Prop(k1,0)^(-1)+1/2*Prop(k1+p3,0)^(-1)
+*
+*endif;
+#endprocedure
